@@ -1,0 +1,668 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://ldcix31.wdf.sap.corp:44311/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='X31205')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://ldcix31.wdf.sap.corp:44311/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='X31205')/$value"><edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://ldcix31.wdf.sap.corp:44311/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='X31205')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://ldcix31.wdf.sap.corp:44311/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='X31205')/$value"><edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://ldcix31.wdf.sap.corp:44311/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='X31205')/$value"><edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://ldcix31.wdf.sap.corp:44311/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='X31205')/$value"><edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://ldcix31.wdf.sap.corp:44311/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='X31205')/$value"><edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://ldcix31.wdf.sap.corp:44311/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='X31205')/$value"><edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://ldcix31.wdf.sap.corp:44311/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='X31205')/$value"><edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="VWKS.NLP_PR_FOD_PO_CRT_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="PurchaseOrderHeader" sap:content-version="1">
+				<Key><PropertyRef Name="PurchaseOrderKey"/></Key><Property Name="PurchaseOrderKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="Key" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="toPurchaseOrderItem" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.PurchaseOrderHeaderToItem"
+					FromRole="FromRole_PurchaseOrderHeaderToItem" ToRole="ToRole_PurchaseOrderHeaderToItem"/></EntityType>
+			<EntityType Name="PurchaseOrderItem" sap:content-version="1">
+				<Key><PropertyRef Name="PurchaseOrderKey"/><PropertyRef Name="PurchaseOrderItemKey"/></Key><Property Name="PurchaseOrderKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="Key" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PurchaseOrderItemKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="Key" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TargetField" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="TARGETFIELD" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TargetFieldValue" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="TARGETFIELDVALUE" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="PurchaseOrderFieldList" sap:content-version="1">
+				<Key><PropertyRef Name="FieldName"/></Key><Property Name="FieldName" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Field name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FieldDesc" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Short text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Result" sap:content-version="1">
+				<Key><PropertyRef Name="PurchaseOrder"/></Key><Property Name="PurchaseOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Purchase Order"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Transaction" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Transaction" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Parameters" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Parameters" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="IsCloud" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Is Cloud System" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Destination" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Connected System" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="TargetDestination" sap:content-version="1">
+				<Key><PropertyRef Name="PurgDocNavgnCntxtUUID"/></Key><Property Name="PurgDocNavgnCntxtUUID" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="IsCloud" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Is Cloud System" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Parameters" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Destination" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Connected System" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PurReqnFllwOnDocDrftHdrUUID" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TransactionCode" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Return" sap:content-version="1">
+				<Key><PropertyRef Name="EventIsUpdated"/></Key><Property Name="EventIsUpdated" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SystemMessageText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="xVWKSxNLP_PO_C_PRFODDraftHdrType" sap:label="C-View for Header of Follow-on Document" sap:content-version="1">
+				<Key><PropertyRef Name="PurReqnFllwOnDocDrftHdrUUID"/></Key><Property Name="PurReqnFllwOnDocDrftHdrUUID" Type="Edm.Guid" Nullable="false" sap:label="Key"/><Property Name="ProcurementHubSourceSystem" Type="Edm.String" MaxLength="10" sap:label="Connected System ID"/><Property Name="ProcurementHubSourceSystemName" Type="Edm.String" MaxLength="30" sap:label="Connected Sys Name"/><Property Name="ProcmtHubFixedSupplier" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Fixed vendor"
+					sap:value-list="standard"/><Property Name="ProcmtHubSupplierName" Type="Edm.String" MaxLength="35" sap:label="Supplier Name"/><Property Name="ProcmtHubCompanyCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Company Code"
+					sap:value-list="standard"/><Property Name="ProcmtHubCompanyCodeName" Type="Edm.String" MaxLength="25" sap:label="Company Name"/><Property Name="ProcmtHubPurchasingGroup" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Purchasing Group"/><Property Name="PurchasingGroupName" Type="Edm.String" MaxLength="18" sap:label="Purchasing Group Description"/><Property Name="ProcmtHubPurchasingOrg" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Purch. organization"
+					sap:value-list="standard"/><Property Name="ProcmtHubPurgOrgName" Type="Edm.String" MaxLength="20" sap:label="Conn. Purch Org Name"/><Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created by"/><Property Name="ProcmtHubPurDocumentType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Purchasing Doc. Type"
+					sap:value-list="standard"/><Property Name="ProcmtHubDocumentCurrency" Type="Edm.String" MaxLength="5" sap:label="Currency" sap:value-list="standard"
+					sap:semantics="currency-code"/><Property Name="ProcmtHubPaymentTerms" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Payment terms"
+					sap:value-list="standard"/><Property Name="ProcmtHubIncotermsClassfctn" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Incoterms"
+					sap:value-list="standard"/><Property Name="ProcmtHubIncotermsLocation1" Type="Edm.String" MaxLength="70" sap:label="Incoterms Location 1"/><Property Name="SuplrIsDsbldForPurReqnGrouping" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="TRUE"/><NavigationProperty Name="to_ProcmtHubCompanyCodeVH" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_C60F1DEC90F51C5793AD660AA4A7C457"
+					FromRole="FromRole_assoc_C60F1DEC90F51C5793AD660AA4A7C457" ToRole="ToRole_assoc_C60F1DEC90F51C5793AD660AA4A7C457"/><NavigationProperty Name="to_ProcmtHubDocumentTypeVH" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_46022ABE35E550FB492492CD606B7BB5"
+					FromRole="FromRole_assoc_46022ABE35E550FB492492CD606B7BB5" ToRole="ToRole_assoc_46022ABE35E550FB492492CD606B7BB5"/><NavigationProperty Name="to_ProcmtHubIncotermsClsfctnVH" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_080696AF94D079944902FC922F2AD939"
+					FromRole="FromRole_assoc_080696AF94D079944902FC922F2AD939" ToRole="ToRole_assoc_080696AF94D079944902FC922F2AD939"/><NavigationProperty Name="to_ProcmtHubPurgOrgVH" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_591953ED8B25755449903D3D333FEE21"
+					FromRole="FromRole_assoc_591953ED8B25755449903D3D333FEE21" ToRole="ToRole_assoc_591953ED8B25755449903D3D333FEE21"/><NavigationProperty Name="to_ProcmtHubSupplierVH" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_9106657F42130F20F9A5FD888317CC18"
+					FromRole="FromRole_assoc_9106657F42130F20F9A5FD888317CC18" ToRole="ToRole_assoc_9106657F42130F20F9A5FD888317CC18"/><NavigationProperty Name="to_ProcurementHubPaymentTermsVH" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_8C469DD6F6803211ACC75187F655680E"
+					FromRole="FromRole_assoc_8C469DD6F6803211ACC75187F655680E" ToRole="ToRole_assoc_8C469DD6F6803211ACC75187F655680E"/><NavigationProperty Name="to_PurReqnFllwOnDocDraftItem" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_F029F4330C763FFFD5C44D1F6BAB6FE0"
+					FromRole="FromRole_assoc_F029F4330C763FFFD5C44D1F6BAB6FE0" ToRole="ToRole_assoc_F029F4330C763FFFD5C44D1F6BAB6FE0"/></EntityType>
+			<EntityType Name="xVWKSxNLP_PO_C_PRFODDraftItemType" sap:label="C-View for Item of Follow-on Document" sap:content-version="1">
+				<Key><PropertyRef Name="PurReqnFllwOnDocDrftHdrUUID"/><PropertyRef Name="PurReqnFllwOnDocDrftItmUUID"/></Key><Property Name="PurReqnFllwOnDocDrftHdrUUID" Type="Edm.Guid" Nullable="false" sap:label="Key"/><Property Name="PurReqnFllwOnDocDrftItmUUID" Type="Edm.Guid" Nullable="false" sap:label="Key"/><Property Name="ProcmtHubPurchaseRequisition" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase"
+					sap:label="Purchase Requisition" sap:creatable="false" sap:updatable="false"/><Property Name="ProcmtHubPurRequisitionItem" Type="Edm.String" MaxLength="5" sap:display-format="NonNegative"
+					sap:label="Item of requisition" sap:creatable="false" sap:updatable="false"/><Property Name="ProcmtHubPurgDocItmCategory" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Item Category Name"
+					sap:creatable="false" sap:updatable="false"/><Property Name="ItemCategoryName" Type="Edm.String" MaxLength="20" sap:label="Text for Item Cat." sap:creatable="false"
+					sap:updatable="false"/><Property Name="ProcmtHubProduct" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Material" sap:creatable="false"
+					sap:updatable="false"/><Property Name="ProcmtHubProductGroup" Type="Edm.String" MaxLength="9" sap:display-format="UpperCase" sap:label="Material Group"
+					sap:creatable="false" sap:updatable="false"/><Property Name="PurchaseRequisitionItemText" Type="Edm.String" MaxLength="40" sap:label="Purchase Requisition Text"/><Property Name="RequestedQuantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:label="Quantity requested"/><Property Name="BaseUnit" Type="Edm.String" MaxLength="3" sap:label="Unit of Measure" sap:semantics="unit-of-measure"/><Property Name="FormattedPurRequisitionItem" Type="Edm.String" MaxLength="20" sap:label="Formatted Purchase Requisition Item"
+					sap:creatable="false" sap:updatable="false"/><Property Name="ProcmtHubPlant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Plant"/><Property Name="ProcmtHubPlantName" Type="Edm.String" MaxLength="30" sap:label="Plant Name" sap:creatable="false" sap:updatable="false"/><Property Name="PurchaseRequisitionPrice" Type="Edm.Decimal" Precision="12" Scale="3" sap:unit="PurReqnItemCurrency"
+					sap:label="Valuation Price"/><Property Name="PurReqnItemCurrency" Type="Edm.String" MaxLength="5" sap:label="Purchase Requisition Item Currency"
+					sap:semantics="currency-code"/><Property Name="LastChangeDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Time Stamp"/><Property Name="ProcurementHubSourceSystem" Type="Edm.String" MaxLength="10" sap:label="Connected System ID"/><Property Name="ProcmtHubMaterialName" Type="Edm.String" MaxLength="40" sap:label="Material description"/><Property Name="ProcmtHubDeliveryDate" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Delivery Date"/><Property Name="ProcmtHubOrderQuantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:label="Order Quantity"/><Property Name="ProcmtHubOrderQuantityUnit" Type="Edm.String" MaxLength="3" sap:label="Order Unit" sap:semantics="unit-of-measure"/><Property Name="PriceType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Price Type"/><Property Name="ProcmtHubNetPriceAmount" Type="Edm.Decimal" Precision="12" Scale="3" sap:unit="PurReqnItemCurrency"
+					sap:label="Net Order Price"/><Property Name="ProcmtHubDocumentCurrency" Type="Edm.String" MaxLength="5" sap:label="Currency" sap:creatable="false" sap:updatable="false"
+					sap:semantics="currency-code"/><Property Name="ProcmtHubNetPriceQuantity" Type="Edm.Decimal" Precision="5" Scale="0" sap:label="Price unit"/><Property Name="ProcmtHubOrderPriceUnit" Type="Edm.String" MaxLength="3" sap:label="Order Price Unit" sap:semantics="unit-of-measure"/><Property Name="ProcmtHubTaxCode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Tax Code"
+					sap:value-list="standard"/><Property Name="InvoiceIsGoodsReceiptBased" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="GR-Based Inv. Verif."
+					sap:creatable="false" sap:updatable="false"/><Property Name="IsEditable" Type="Edm.String" MaxLength="1" sap:label="Is Editable"/><Property Name="PurReqnIsValdInCntrlReqnProcg" Type="Edm.Boolean" sap:display-format="UpperCase"
+					sap:label="PR is Valid for Hub System Processing" sap:creatable="false" sap:updatable="false"/><NavigationProperty Name="to_ProcmtHubTaxCodeValueHelp" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_F08728A61245F27FEB30122538456A3F"
+					FromRole="FromRole_assoc_F08728A61245F27FEB30122538456A3F" ToRole="ToRole_assoc_F08728A61245F27FEB30122538456A3F"/><NavigationProperty Name="to_PurReqnFllwOnDocDraftHeader" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_5BDDA301DE2C7BBAE42B8B181F68A6DC"
+					FromRole="FromRole_assoc_5BDDA301DE2C7BBAE42B8B181F68A6DC" ToRole="ToRole_assoc_5BDDA301DE2C7BBAE42B8B181F68A6DC"/></EntityType>
+			<EntityType Name="xVWKSxNLP_PO_I_PRFODDRAFTHDRType" sap:label="BasicView: Purchase Header Create" sap:content-version="1">
+				<Key><PropertyRef Name="PurReqnFllwOnDocDrftHdrUUID"/></Key><Property Name="PurReqnFllwOnDocDrftHdrUUID" Type="Edm.Guid" Nullable="false" sap:label="Key"/><Property Name="ProcurementHubSourceSystem" Type="Edm.String" MaxLength="10" sap:label="Connected System ID"/><Property Name="ProcmtHubFixedSupplier" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Fixed vendor"/><Property Name="ProcmtHubCompanyCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Company Code"/><Property Name="ProcmtHubPurchasingGroup" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Purchasing Group"/><Property Name="ProcmtHubPurchasingOrg" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Purch. organization"/><Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Created by"/><Property Name="PurchasingDocumentCategory" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Purch. Doc. Category"/><Property Name="ProcmtHubPurDocumentType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Purchasing Doc. Type"/><Property Name="ProcmtHubDocumentCurrency" Type="Edm.String" MaxLength="5" sap:label="Currency" sap:semantics="currency-code"/><Property Name="ProcmtHubPaymentTerms" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Payment terms"/><Property Name="ProcmtHubIncotermsClassfctn" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Incoterms"/><Property Name="ProcmtHubIncotermsLocation1" Type="Edm.String" MaxLength="70" sap:label="Incoterms Location 1"/><NavigationProperty Name="to_PurReqnFllwOnDocDraftItem" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_E9B9E15BA50F802689C62CCB73C90FEC"
+					FromRole="FromRole_assoc_E9B9E15BA50F802689C62CCB73C90FEC" ToRole="ToRole_assoc_E9B9E15BA50F802689C62CCB73C90FEC"/></EntityType>
+			<EntityType Name="xVWKSxNLP_PO_I_PRFODDRAFTITEMType" sap:label="BasicView: Contract Item Create" sap:content-version="1">
+				<Key><PropertyRef Name="PurReqnFllwOnDocDrftHdrUUID"/><PropertyRef Name="PurReqnFllwOnDocDrftItmUUID"/></Key><Property Name="PurReqnFllwOnDocDrftHdrUUID" Type="Edm.Guid" Nullable="false" sap:label="Key"/><Property Name="PurReqnFllwOnDocDrftItmUUID" Type="Edm.Guid" Nullable="false" sap:label="Key"/><Property Name="ProcmtHubPurchaseRequisition" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase"
+					sap:label="Purchase Requisition"/><Property Name="ProcmtHubPurRequisitionItem" Type="Edm.String" MaxLength="5" sap:display-format="NonNegative"
+					sap:label="Item of requisition"/><Property Name="ProcmtHubProduct" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Material"/><Property Name="ProcmtHubMaterialName" Type="Edm.String" MaxLength="40" sap:label="Material description"/><Property Name="ProcmtHubDeliveryDate" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Delivery Date"/><Property Name="ProcmtHubOrderQuantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:label="Order Quantity"/><Property Name="ProcmtHubOrderQuantityUnit" Type="Edm.String" MaxLength="3" sap:label="Order Unit" sap:semantics="unit-of-measure"/><Property Name="PriceType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Price Type"/><Property Name="ProcmtHubNetPriceAmount" Type="Edm.Decimal" Precision="12" Scale="3" sap:unit="ProcmtHubDocumentCurrency"
+					sap:label="Net Order Price"/><Property Name="ProcmtHubDocumentCurrency" Type="Edm.String" MaxLength="5" sap:label="Currency" sap:semantics="currency-code"/><Property Name="ProcmtHubNetPriceQuantity" Type="Edm.Decimal" Precision="5" Scale="0" sap:label="Price unit"/><Property Name="ProcmtHubOrderPriceUnit" Type="Edm.String" MaxLength="3" sap:label="Order Price Unit" sap:semantics="unit-of-measure"/><Property Name="ProcmtHubTaxCode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Tax Code"/><Property Name="InvoiceIsGoodsReceiptBased" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="GR-Based Inv. Verif."/><Property Name="PurReqnIsValdInCntrlReqnProcg" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Is Central PR Procg."/><NavigationProperty Name="to_PurReqnFllwOnDocDraftHeader" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_FD552804DAB80B942B06A4D3D8922853"
+					FromRole="FromRole_assoc_FD552804DAB80B942B06A4D3D8922853" ToRole="ToRole_assoc_FD552804DAB80B942B06A4D3D8922853"/></EntityType>
+			<EntityType Name="C_ProcmtHubCompanyCodeVHType" sap:label="Company Codes from Connected Systems" sap:content-version="1">
+				<Key><PropertyRef Name="ProcurementHubSourceSystem"/><PropertyRef Name="ProcmtHubCompanyCode"/></Key><Property Name="ProcurementHubSourceSystem" Type="Edm.String" Nullable="false" MaxLength="10"
+					sap:text="to_BackendSourceSystem/ProcurementHubSourceSystemName" sap:label="Connected System ID" sap:value-list="standard"/><Property Name="ProcmtHubCompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase"
+					sap:text="ProcmtHubCompanyCodeName" sap:label="Conn. Company Code"/><Property Name="ProcmtHubCompanyCodeName" Type="Edm.String" MaxLength="25" sap:label="Company Name"/><Property Name="ProcurementHubSourceSystemName" Type="Edm.String" MaxLength="30" sap:label="Connected System Name"/><NavigationProperty Name="to_BackendSourceSystem" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_4BA9046D649DCC3EF523677BFE1CBD2A"
+					FromRole="FromRole_assoc_4BA9046D649DCC3EF523677BFE1CBD2A" ToRole="ToRole_assoc_4BA9046D649DCC3EF523677BFE1CBD2A"/></EntityType>
+			<EntityType Name="C_ProcmtHubIncotermsClsfctnVHType" sap:label="C-View for Search Help of Incoterms from Connected System"
+				sap:content-version="1">
+				<Key><PropertyRef Name="ProcurementHubSourceSystem"/><PropertyRef Name="IncotermsClassification"/></Key><Property Name="ProcurementHubSourceSystem" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Connected System ID"/><Property Name="IncotermsClassification" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase"
+					sap:label="Incoterms"/><Property Name="IncotermsClassificationName" Type="Edm.String" MaxLength="30" sap:label="Incoterms description"/><Property Name="ProcurementHubSourceSystemName" Type="Edm.String" MaxLength="30" sap:label="Connected System Name"/></EntityType>
+			<EntityType Name="C_ProcmtHubPurgOrgVHType" sap:label="Purchasing Organizations" sap:content-version="1">
+				<Key><PropertyRef Name="ProcurementHubSourceSystem"/><PropertyRef Name="ProcmtHubPurchasingOrg"/></Key><Property Name="ProcurementHubSourceSystem" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Connected System ID"/><Property Name="ProcmtHubPurchasingOrg" Type="Edm.String" Nullable="false" MaxLength="4" sap:text="ProcmtHubPurgOrgName"
+					sap:label="Connected Purch Org"/><Property Name="ProcmtHubPurgOrgName" Type="Edm.String" MaxLength="20" sap:label="Conn. Purch Org Name"/><Property Name="ProcurementHubSourceSystemName" Type="Edm.String" MaxLength="30" sap:label="Connected System Name"/></EntityType>
+			<EntityType Name="C_ProcmtHubPurOrdDocTypeVHType" sap:label="PO document type consumption view" sap:content-version="1">
+				<Key><PropertyRef Name="PurchasingDocumentType"/><PropertyRef Name="ExtSourceSystem"/></Key><Property Name="PurchasingDocumentType" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase"
+					sap:text="PurchasingDocumentTypeName" sap:label="Purchasing Doc. Type"/><Property Name="ExtSourceSystem" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Connected System ID"/><Property Name="PurchasingDocumentCategory" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Purch. Doc. Category"/><Property Name="PurchasingDocumentTypeName" Type="Edm.String" MaxLength="20" sap:label="Doc. Type Descript."/><Property Name="ProcurementHubSourceSystemName" Type="Edm.String" MaxLength="30" sap:label="Connected Sys Name"/></EntityType>
+			<EntityType Name="C_ProcmtHubSupplierVHType" sap:label="Search Help view for Supplier" sap:content-version="1">
+				<Key><PropertyRef Name="ProcurementHubSourceSystem"/><PropertyRef Name="ProcmtHubFixedSupplier"/><PropertyRef Name="ProcmtHubPurchasingOrg"/><PropertyRef Name="ProcmtHubCompanyCode"/></Key><Property Name="ProcurementHubSourceSystem" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Connected System ID"/><Property Name="ProcmtHubFixedSupplier" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase"
+					sap:text="ProcmtHubSupplierName" sap:label="Supplier"/><Property Name="ProcmtHubPurchasingOrg" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase"
+					sap:label="Purch. Organization in Connected System" sap:value-list="standard"/><Property Name="ProcmtHubCompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase"
+					sap:label="Company Code in Connected System" sap:value-list="standard"/><Property Name="ProcmtHubSupplierName" Type="Edm.String" MaxLength="35" sap:label="Supplier Name"/><Property Name="ProcmtHubPurgOrgName" Type="Edm.String" MaxLength="20" sap:label="Purch. Org. Name in Connected System"/><Property Name="ProcmtHubCompanyCodeName" Type="Edm.String" MaxLength="25" sap:label="Company Code Name in Connected System"/><Property Name="CityName" Type="Edm.String" MaxLength="35" sap:label="City"/><Property Name="PostalCode" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Postal Code"/><Property Name="ProcurementHubSourceSystemName" Type="Edm.String" MaxLength="30" sap:label="Connected System Name"/><Property Name="PrmtHbIsUKMSEnabled" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="UKMS"/><Property Name="SupplierAccountGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Account group"/><Property Name="AuthorizationGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Authorization"/><NavigationProperty Name="to_BackendSourceSystem" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_8122468B6CD83FAFC5B299B534775EB4"
+					FromRole="FromRole_assoc_8122468B6CD83FAFC5B299B534775EB4" ToRole="ToRole_assoc_8122468B6CD83FAFC5B299B534775EB4"/><NavigationProperty Name="to_SupplierCompany" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_6F4F8E5F7098315B6532D557C188B83F"
+					FromRole="FromRole_assoc_6F4F8E5F7098315B6532D557C188B83F" ToRole="ToRole_assoc_6F4F8E5F7098315B6532D557C188B83F"/><NavigationProperty Name="to_SupplierPurchasingOrg" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_57BE4C1F4EB1AF782F7DB4E8DA4D5853"
+					FromRole="FromRole_assoc_57BE4C1F4EB1AF782F7DB4E8DA4D5853" ToRole="ToRole_assoc_57BE4C1F4EB1AF782F7DB4E8DA4D5853"/></EntityType>
+			<EntityType Name="C_ProcmtHubTaxCodeValueHelpType" sap:label="Tax code value help in Central Procurement scenario" sap:content-version="1">
+				<Key><PropertyRef Name="ProcurementHubSourceSystem"/><PropertyRef Name="TaxCode"/><PropertyRef Name="TaxCalculationProcedure"/></Key><Property Name="ProcurementHubSourceSystem" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Connected System ID"/><Property Name="TaxCode" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:text="TaxCodeName"
+					sap:label="Tax Code"/><Property Name="TaxCalculationProcedure" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="UpperCase"
+					sap:label="Tax Calculation Procedure"/><Property Name="TaxCodeName" Type="Edm.String" MaxLength="50" sap:label="Tax Code Name"/><Property Name="ProcurementHubSourceSystemName" Type="Edm.String" MaxLength="30" sap:label="Connected System Name"/></EntityType>
+			<EntityType Name="C_ProcurementHubPaymentTermsVHType" sap:label="Value Help for Payment Terms" sap:content-version="1">
+				<Key><PropertyRef Name="PaymentTerms"/><PropertyRef Name="ProcurementHubSourceSystem"/></Key><Property Name="PaymentTerms" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="PaymentTermsName"
+					sap:label="Payment Terms" sap:value-list="standard"/><Property Name="ProcurementHubSourceSystem" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Connected System ID"/><Property Name="PaymentTermsName" Type="Edm.String" MaxLength="30" sap:label="Payment Terms Description"/><Property Name="CashDiscount1Days" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="Cash Discount Days 1"/><Property Name="CashDiscount1Percent" Type="Edm.Decimal" Precision="5" Scale="3" sap:label="Cash Discount Percentage 1"/><Property Name="CashDiscount2Days" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="Cash Discount Days 2"/><Property Name="CashDiscount2Percent" Type="Edm.Decimal" Precision="5" Scale="3" sap:label="Cash Discount Percentage 2"/><Property Name="NetPaymentDays" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="Net Payment Days"/><Property Name="ProcurementHubSourceSystemName" Type="Edm.String" MaxLength="30" sap:label="Connected Sys Name"/><NavigationProperty Name="to_ProcurementHubPaymentTerms" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_BD2EE7C67CE869CF086E982D8F9D5ECD"
+					FromRole="FromRole_assoc_BD2EE7C67CE869CF086E982D8F9D5ECD" ToRole="ToRole_assoc_BD2EE7C67CE869CF086E982D8F9D5ECD"/></EntityType>
+			<EntityType Name="I_BackendSourceSystemType" sap:label="Backend Source System for Hub scenario" sap:content-version="1">
+				<Key><PropertyRef Name="ProcurementHubSourceSystem"/></Key><Property Name="ProcurementHubSourceSystem" Type="Edm.String" Nullable="false" MaxLength="10" sap:text="ProcurementHubSourceSystemName"
+					sap:label="Connected System ID"/><Property Name="ProcurementHubSourceSystemName" Type="Edm.String" MaxLength="30" sap:label="Connected Sys Name"/><Property Name="CommSyst" Type="Edm.String" MaxLength="60" sap:label="Comm. System"/><Property Name="LogicalSystem" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Logical System"/><Property Name="ProcmtHubBackendBusSyst" Type="Edm.String" MaxLength="60" sap:label="Connected System"/></EntityType>
+			<EntityType Name="I_CurrencyType" sap:label="Currency" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Currency"/></Key><Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:text="Currency_Text" sap:label="Currency"
+					sap:semantics="currency-code"/><Property Name="Currency_Text" Type="Edm.String" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false"/><Property Name="Decimals" Type="Edm.Byte" sap:label="Decimal Places"/><Property Name="CurrencyISOCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="ISO Code"/><Property Name="AlternativeCurrencyKey" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Alternative Key"/><Property Name="IsPrimaryCurrencyForISOCrcy" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Primary"/></EntityType>
+			<EntityType Name="I_LanguageType" sap:label="Language" sap:content-version="1">
+				<Key><PropertyRef Name="Language"/></Key><Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:text="Language_Text" sap:label="Language Key"/><Property Name="Language_Text" Type="Edm.String" MaxLength="16" sap:label="Name" sap:creatable="false" sap:updatable="false"/><Property Name="LanguageISOCode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Language Code"/><NavigationProperty Name="to_Text" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_DAB3483923698C609058A2E35497F42C"
+					FromRole="FromRole_assoc_DAB3483923698C609058A2E35497F42C" ToRole="ToRole_assoc_DAB3483923698C609058A2E35497F42C"/></EntityType>
+			<EntityType Name="I_LanguageTextType" sap:label="Language Text" sap:content-version="1">
+				<Key><PropertyRef Name="Language"/><PropertyRef Name="LanguageCode"/></Key><Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Language Key"/><Property Name="LanguageCode" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Language Key"/><Property Name="LanguageName" Type="Edm.String" MaxLength="16" sap:label="Name"/></EntityType>
+			<EntityType Name="I_ProcmtHubPaymentTermsCndnTxtType" sap:label="Basic View for Description of Payment Term Conditions"
+				sap:content-version="1">
+				<Key><PropertyRef Name="PaymentTerms"/><PropertyRef Name="ExtSourceSystem"/><PropertyRef Name="Language"/></Key><Property Name="PaymentTerms" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Payment terms"
+					sap:value-list="standard"/><Property Name="ExtSourceSystem" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Connected System ID"/><Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Language Key"/><Property Name="PaymentTermsConditionDesc" Type="Edm.String" MaxLength="50" sap:label="Own Explanation"/><NavigationProperty Name="to_ProcmtHubPaytTrmsConditions" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_B63D9209DE1D8AFA204E6443763D600D"
+					FromRole="FromRole_assoc_B63D9209DE1D8AFA204E6443763D600D" ToRole="ToRole_assoc_B63D9209DE1D8AFA204E6443763D600D"/><NavigationProperty Name="to_ProcurementHubPaymentTerms" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_7252634DF1B5477360012C97B298A88C"
+					FromRole="FromRole_assoc_7252634DF1B5477360012C97B298A88C" ToRole="ToRole_assoc_7252634DF1B5477360012C97B298A88C"/></EntityType>
+			<EntityType Name="I_ProcmtHubPaymentTermsTextType" sap:label="Basic View for Payment Terms Description in Procurement Hub"
+				sap:content-version="1">
+				<Key><PropertyRef Name="PaymentTerms"/><PropertyRef Name="ExtSourceSystem"/><PropertyRef Name="Language"/></Key><Property Name="PaymentTerms" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Payment terms"/><Property Name="ExtSourceSystem" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Connected System ID"/><Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:text="to_Language/Language_Text" sap:label="Language Key"
+					sap:value-list="standard"/><Property Name="PaymentTermsName" Type="Edm.String" MaxLength="30" sap:label="Description"/><NavigationProperty Name="to_Language" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_DD65F81C375404D0D782A31B87ADEA7F"
+					FromRole="FromRole_assoc_DD65F81C375404D0D782A31B87ADEA7F" ToRole="ToRole_assoc_DD65F81C375404D0D782A31B87ADEA7F"/></EntityType>
+			<EntityType Name="I_ProcmtHubPaytTrmsConditionsType" sap:label="Basic View for Payment Term Conditions in Procurement Hub"
+				sap:content-version="1">
+				<Key><PropertyRef Name="PaymentTerms"/><PropertyRef Name="ExtSourceSystem"/></Key><Property Name="PaymentTerms" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Payment terms"
+					sap:value-list="standard"/><Property Name="ExtSourceSystem" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Connected System ID"/><Property Name="CashDiscount1Days" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative"
+					sap:label="Days from Baseline Date for Payment"/><Property Name="CashDiscount2Days" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative"
+					sap:label="Days from Baseline Date for Payment"/><Property Name="NetPaymentDays" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative"
+					sap:label="Days from Baseline Date for Payment"/><Property Name="CashDiscount1Percent" Type="Edm.Decimal" Precision="5" Scale="3" sap:label="Cash Discount Percentage Rate"/><Property Name="CashDiscount2Percent" Type="Edm.Decimal" Precision="5" Scale="3" sap:label="Cash Discount Percentage Rate"/><NavigationProperty Name="to_ProcmtHubPaymentTermsCndnTxt" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_208028619DF3151EB599AC54A031FC3B"
+					FromRole="FromRole_assoc_208028619DF3151EB599AC54A031FC3B" ToRole="ToRole_assoc_208028619DF3151EB599AC54A031FC3B"/><NavigationProperty Name="to_ProcurementHubPaymentTerms" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_161DD1C1A5A8FF6184079A8F3C520DC6"
+					FromRole="FromRole_assoc_161DD1C1A5A8FF6184079A8F3C520DC6" ToRole="ToRole_assoc_161DD1C1A5A8FF6184079A8F3C520DC6"/></EntityType>
+			<EntityType Name="I_ProcmtHubPurgOrgType" sap:label="Procurement Hub Purchasing Organization" sap:content-version="1">
+				<Key><PropertyRef Name="ProcurementHubSourceSystem"/><PropertyRef Name="ProcmtHubPurchasingOrg"/></Key><Property Name="ProcurementHubSourceSystem" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Connected System ID"/><Property Name="ProcmtHubPurchasingOrg" Type="Edm.String" Nullable="false" MaxLength="4" sap:text="ProcmtHubPurgOrgName"
+					sap:label="Connected Purch Org"/><Property Name="ProcmtHubPurgOrgUniqueID" Type="Edm.String" MaxLength="20" sap:label="Conn. Purch Org ID"/><Property Name="ProcmtHubPurgOrgName" Type="Edm.String" MaxLength="20" sap:label="Conn. Purch Org Name"/><Property Name="ProcurementHubSourceSystemName" Type="Edm.String" MaxLength="30" sap:label="Connected Sys Name"/></EntityType>
+			<EntityType Name="I_ProcmtHubSuplrByCompanyCodeType" sap:label="Basic view for backend supplier Co code" sap:content-version="1">
+				<Key><PropertyRef Name="ProcurementHubSourceSystem"/><PropertyRef Name="ProcmtHubFixedSupplier"/><PropertyRef Name="ProcmtHubCompanyCode"/></Key><Property Name="ProcurementHubSourceSystem" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Connected System ID"/><Property Name="ProcmtHubFixedSupplier" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Vendor"/><Property Name="ProcmtHubCompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase"
+					sap:label="Company Code"/><Property Name="CompanyCodeName" Type="Edm.String" MaxLength="25" sap:label="Company Name"/></EntityType>
+			<EntityType Name="I_ProcmtHubSupplierPurgOrgType" sap:label="Basic view for backend supplier Pur Org" sap:content-version="1">
+				<Key><PropertyRef Name="ProcurementHubSourceSystem"/><PropertyRef Name="ProcmtHubFixedSupplier"/><PropertyRef Name="ProcmtHubPurchasingOrg"/></Key><Property Name="ProcurementHubSourceSystem" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Connected System ID"/><Property Name="ProcmtHubFixedSupplier" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Vendor"/><Property Name="ProcmtHubPurchasingOrg" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase"
+					sap:label="Purch. organization"/><Property Name="ProcmtHubPurgOrgName" Type="Edm.String" MaxLength="20" sap:label="Conn. Purch Org Name"/><NavigationProperty Name="to_PurchasingOrg" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_D7DDFBCB42260CFDFDC57E48480C9BD6"
+					FromRole="FromRole_assoc_D7DDFBCB42260CFDFDC57E48480C9BD6" ToRole="ToRole_assoc_D7DDFBCB42260CFDFDC57E48480C9BD6"/></EntityType>
+			<EntityType Name="I_ProcurementHubPaymentTermsType" sap:label="Basic View for Payment Terms in Procurement Hub" sap:content-version="1">
+				<Key><PropertyRef Name="PaymentTerms"/><PropertyRef Name="ExtSourceSystem"/></Key><Property Name="PaymentTerms" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Payment terms"/><Property Name="ExtSourceSystem" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Connected System ID"/><NavigationProperty Name="to_ProcmtHubPaymentTermsText" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_B15E01C97B8D90E7180683E710AAEB50"
+					FromRole="FromRole_assoc_B15E01C97B8D90E7180683E710AAEB50" ToRole="ToRole_assoc_B15E01C97B8D90E7180683E710AAEB50"/><NavigationProperty Name="to_ProcmtHubPaytTrmsConditions" Relationship="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_E1197487CD3269F1C408169341A4EF0A"
+					FromRole="FromRole_assoc_E1197487CD3269F1C408169341A4EF0A" ToRole="ToRole_assoc_E1197487CD3269F1C408169341A4EF0A"/></EntityType>
+			<Association Name="PurchaseOrderHeaderToItem" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.PurchaseOrderHeader" Multiplicity="1" Role="FromRole_PurchaseOrderHeaderToItem"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.PurchaseOrderItem" Multiplicity="*" Role="ToRole_PurchaseOrderHeaderToItem"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_PurchaseOrderHeaderToItem"><PropertyRef Name="PurchaseOrderKey"/></Principal>
+					<Dependent Role="ToRole_PurchaseOrderHeaderToItem"><PropertyRef Name="PurchaseOrderKey"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_4BA9046D649DCC3EF523677BFE1CBD2A" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubCompanyCodeVHType" Multiplicity="1" Role="FromRole_assoc_4BA9046D649DCC3EF523677BFE1CBD2A"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_BackendSourceSystemType" Multiplicity="1" Role="ToRole_assoc_4BA9046D649DCC3EF523677BFE1CBD2A"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_4BA9046D649DCC3EF523677BFE1CBD2A"><PropertyRef Name="ProcurementHubSourceSystem"/></Principal>
+					<Dependent Role="FromRole_assoc_4BA9046D649DCC3EF523677BFE1CBD2A"><PropertyRef Name="ProcurementHubSourceSystem"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_D7DDFBCB42260CFDFDC57E48480C9BD6" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubSupplierPurgOrgType" Multiplicity="1"
+				Role="FromRole_assoc_D7DDFBCB42260CFDFDC57E48480C9BD6"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubPurgOrgType" Multiplicity="1" Role="ToRole_assoc_D7DDFBCB42260CFDFDC57E48480C9BD6"/></Association>
+			<Association Name="assoc_F08728A61245F27FEB30122538456A3F" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftItemType" Multiplicity="1"
+				Role="FromRole_assoc_F08728A61245F27FEB30122538456A3F"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubTaxCodeValueHelpType" Multiplicity="*" Role="ToRole_assoc_F08728A61245F27FEB30122538456A3F"/></Association>
+			<Association Name="assoc_5BDDA301DE2C7BBAE42B8B181F68A6DC" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftItemType" Multiplicity="1"
+				Role="FromRole_assoc_5BDDA301DE2C7BBAE42B8B181F68A6DC"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_I_PRFODDRAFTHDRType" Multiplicity="1"
+				Role="ToRole_assoc_5BDDA301DE2C7BBAE42B8B181F68A6DC"/></Association>
+			<Association Name="assoc_E9B9E15BA50F802689C62CCB73C90FEC" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_I_PRFODDRAFTHDRType" Multiplicity="1"
+				Role="FromRole_assoc_E9B9E15BA50F802689C62CCB73C90FEC"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_I_PRFODDRAFTITEMType" Multiplicity="*"
+				Role="ToRole_assoc_E9B9E15BA50F802689C62CCB73C90FEC"/></Association>
+			<Association Name="assoc_BD2EE7C67CE869CF086E982D8F9D5ECD" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcurementHubPaymentTermsVHType" Multiplicity="1"
+				Role="FromRole_assoc_BD2EE7C67CE869CF086E982D8F9D5ECD"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcurementHubPaymentTermsType" Multiplicity="1"
+				Role="ToRole_assoc_BD2EE7C67CE869CF086E982D8F9D5ECD"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_BD2EE7C67CE869CF086E982D8F9D5ECD"><PropertyRef Name="ExtSourceSystem"/><PropertyRef Name="PaymentTerms"/></Principal>
+					<Dependent Role="FromRole_assoc_BD2EE7C67CE869CF086E982D8F9D5ECD"><PropertyRef Name="ProcurementHubSourceSystem"/><PropertyRef Name="PaymentTerms"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_DAB3483923698C609058A2E35497F42C" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_LanguageType" Multiplicity="1" Role="FromRole_assoc_DAB3483923698C609058A2E35497F42C"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_LanguageTextType" Multiplicity="*" Role="ToRole_assoc_DAB3483923698C609058A2E35497F42C"/></Association>
+			<Association Name="assoc_8122468B6CD83FAFC5B299B534775EB4" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubSupplierVHType" Multiplicity="1" Role="FromRole_assoc_8122468B6CD83FAFC5B299B534775EB4"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_BackendSourceSystemType" Multiplicity="1" Role="ToRole_assoc_8122468B6CD83FAFC5B299B534775EB4"/></Association>
+			<Association Name="assoc_6F4F8E5F7098315B6532D557C188B83F" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubSupplierVHType" Multiplicity="1" Role="FromRole_assoc_6F4F8E5F7098315B6532D557C188B83F"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubSuplrByCompanyCodeType" Multiplicity="*"
+				Role="ToRole_assoc_6F4F8E5F7098315B6532D557C188B83F"/></Association>
+			<Association Name="assoc_57BE4C1F4EB1AF782F7DB4E8DA4D5853" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubSupplierVHType" Multiplicity="1" Role="FromRole_assoc_57BE4C1F4EB1AF782F7DB4E8DA4D5853"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubSupplierPurgOrgType" Multiplicity="*" Role="ToRole_assoc_57BE4C1F4EB1AF782F7DB4E8DA4D5853"/></Association>
+			<Association Name="assoc_C60F1DEC90F51C5793AD660AA4A7C457" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftHdrType" Multiplicity="1"
+				Role="FromRole_assoc_C60F1DEC90F51C5793AD660AA4A7C457"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubCompanyCodeVHType" Multiplicity="1" Role="ToRole_assoc_C60F1DEC90F51C5793AD660AA4A7C457"/></Association>
+			<Association Name="assoc_46022ABE35E550FB492492CD606B7BB5" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftHdrType" Multiplicity="1"
+				Role="FromRole_assoc_46022ABE35E550FB492492CD606B7BB5"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubPurOrdDocTypeVHType" Multiplicity="0..1"
+				Role="ToRole_assoc_46022ABE35E550FB492492CD606B7BB5"/></Association>
+			<Association Name="assoc_080696AF94D079944902FC922F2AD939" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftHdrType" Multiplicity="1"
+				Role="FromRole_assoc_080696AF94D079944902FC922F2AD939"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubIncotermsClsfctnVHType" Multiplicity="0..1"
+				Role="ToRole_assoc_080696AF94D079944902FC922F2AD939"/></Association>
+			<Association Name="assoc_591953ED8B25755449903D3D333FEE21" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftHdrType" Multiplicity="1"
+				Role="FromRole_assoc_591953ED8B25755449903D3D333FEE21"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubPurgOrgVHType" Multiplicity="1" Role="ToRole_assoc_591953ED8B25755449903D3D333FEE21"/></Association>
+			<Association Name="assoc_9106657F42130F20F9A5FD888317CC18" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftHdrType" Multiplicity="1"
+				Role="FromRole_assoc_9106657F42130F20F9A5FD888317CC18"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubSupplierVHType" Multiplicity="1" Role="ToRole_assoc_9106657F42130F20F9A5FD888317CC18"/></Association>
+			<Association Name="assoc_8C469DD6F6803211ACC75187F655680E" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftHdrType" Multiplicity="1"
+				Role="FromRole_assoc_8C469DD6F6803211ACC75187F655680E"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcurementHubPaymentTermsVHType" Multiplicity="0..1"
+				Role="ToRole_assoc_8C469DD6F6803211ACC75187F655680E"/></Association>
+			<Association Name="assoc_F029F4330C763FFFD5C44D1F6BAB6FE0" sap:content-version="1">
+				<End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftHdrType" Multiplicity="1"
+					Role="FromRole_assoc_F029F4330C763FFFD5C44D1F6BAB6FE0"><OnDelete Action="Cascade"/></End><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftItemType" Multiplicity="*"
+					Role="ToRole_assoc_F029F4330C763FFFD5C44D1F6BAB6FE0"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_assoc_F029F4330C763FFFD5C44D1F6BAB6FE0"><PropertyRef Name="PurReqnFllwOnDocDrftHdrUUID"/></Principal>
+					<Dependent Role="ToRole_assoc_F029F4330C763FFFD5C44D1F6BAB6FE0"><PropertyRef Name="PurReqnFllwOnDocDrftHdrUUID"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_FD552804DAB80B942B06A4D3D8922853" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_I_PRFODDRAFTITEMType" Multiplicity="1"
+				Role="FromRole_assoc_FD552804DAB80B942B06A4D3D8922853"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_I_PRFODDRAFTHDRType" Multiplicity="1"
+				Role="ToRole_assoc_FD552804DAB80B942B06A4D3D8922853"/></Association>
+			<Association Name="assoc_B63D9209DE1D8AFA204E6443763D600D" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubPaymentTermsCndnTxtType" Multiplicity="1"
+				Role="FromRole_assoc_B63D9209DE1D8AFA204E6443763D600D"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubPaytTrmsConditionsType" Multiplicity="1"
+				Role="ToRole_assoc_B63D9209DE1D8AFA204E6443763D600D"/></Association>
+			<Association Name="assoc_7252634DF1B5477360012C97B298A88C" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubPaymentTermsCndnTxtType" Multiplicity="1"
+				Role="FromRole_assoc_7252634DF1B5477360012C97B298A88C"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcurementHubPaymentTermsType" Multiplicity="0..1"
+				Role="ToRole_assoc_7252634DF1B5477360012C97B298A88C"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_7252634DF1B5477360012C97B298A88C"><PropertyRef Name="ExtSourceSystem"/><PropertyRef Name="PaymentTerms"/></Principal>
+					<Dependent Role="FromRole_assoc_7252634DF1B5477360012C97B298A88C"><PropertyRef Name="ExtSourceSystem"/><PropertyRef Name="PaymentTerms"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_B15E01C97B8D90E7180683E710AAEB50" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcurementHubPaymentTermsType" Multiplicity="1"
+				Role="FromRole_assoc_B15E01C97B8D90E7180683E710AAEB50"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubPaymentTermsTextType" Multiplicity="*" Role="ToRole_assoc_B15E01C97B8D90E7180683E710AAEB50"/></Association>
+			<Association Name="assoc_E1197487CD3269F1C408169341A4EF0A" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcurementHubPaymentTermsType" Multiplicity="1"
+				Role="FromRole_assoc_E1197487CD3269F1C408169341A4EF0A"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubPaytTrmsConditionsType" Multiplicity="0..1"
+				Role="ToRole_assoc_E1197487CD3269F1C408169341A4EF0A"/></Association>
+			<Association Name="assoc_208028619DF3151EB599AC54A031FC3B" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubPaytTrmsConditionsType" Multiplicity="1"
+				Role="FromRole_assoc_208028619DF3151EB599AC54A031FC3B"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubPaymentTermsCndnTxtType" Multiplicity="*"
+				Role="ToRole_assoc_208028619DF3151EB599AC54A031FC3B"/></Association>
+			<Association Name="assoc_161DD1C1A5A8FF6184079A8F3C520DC6" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubPaytTrmsConditionsType" Multiplicity="1"
+				Role="FromRole_assoc_161DD1C1A5A8FF6184079A8F3C520DC6"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcurementHubPaymentTermsType" Multiplicity="1"
+				Role="ToRole_assoc_161DD1C1A5A8FF6184079A8F3C520DC6"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_161DD1C1A5A8FF6184079A8F3C520DC6"><PropertyRef Name="ExtSourceSystem"/><PropertyRef Name="PaymentTerms"/></Principal>
+					<Dependent Role="FromRole_assoc_161DD1C1A5A8FF6184079A8F3C520DC6"><PropertyRef Name="ExtSourceSystem"/><PropertyRef Name="PaymentTerms"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_DD65F81C375404D0D782A31B87ADEA7F" sap:content-version="1"><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubPaymentTermsTextType" Multiplicity="1"
+				Role="FromRole_assoc_DD65F81C375404D0D782A31B87ADEA7F"/><End Type="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_LanguageType" Multiplicity="0..1" Role="ToRole_assoc_DD65F81C375404D0D782A31B87ADEA7F"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_DD65F81C375404D0D782A31B87ADEA7F"><PropertyRef Name="Language"/></Principal>
+					<Dependent Role="FromRole_assoc_DD65F81C375404D0D782A31B87ADEA7F"><PropertyRef Name="Language"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="VWKS_NLP_PR_FOD_PO_CRT_SRV_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true"
+				sap:supported-formats="atom json xlsx"><EntitySet Name="xVWKSxNLP_PO_C_PRFODDraftHdr" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftHdrType"
+				sap:creatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="xVWKSxNLP_PO_C_PRFODDraftItem" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftItemType"
+				sap:creatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="xVWKSxNLP_PO_I_PRFODDRAFTHDR" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_I_PRFODDRAFTHDRType"
+				sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="xVWKSxNLP_PO_I_PRFODDRAFTITEM" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_I_PRFODDRAFTITEMType"
+				sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="C_ProcmtHubCompanyCodeVH" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubCompanyCodeVHType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="C_ProcmtHubIncotermsClsfctnVH" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubIncotermsClsfctnVHType"
+				sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="C_ProcmtHubPurgOrgVH" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubPurgOrgVHType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="C_ProcmtHubPurOrdDocTypeVH" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubPurOrdDocTypeVHType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="C_ProcmtHubSupplierVH" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubSupplierVHType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="C_ProcmtHubTaxCodeValueHelp" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubTaxCodeValueHelpType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="C_ProcurementHubPaymentTermsVH" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcurementHubPaymentTermsVHType"
+				sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="I_BackendSourceSystem" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_BackendSourceSystemType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="I_Currency" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_CurrencyType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="I_Language" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_LanguageType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="I_LanguageText" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_LanguageTextType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="I_ProcmtHubPaymentTermsCndnTxt" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubPaymentTermsCndnTxtType"
+				sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="I_ProcmtHubPaymentTermsText" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubPaymentTermsTextType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="I_ProcmtHubPaytTrmsConditions" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubPaytTrmsConditionsType"
+				sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="I_ProcmtHubPurgOrg" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubPurgOrgType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="I_ProcmtHubSuplrByCompanyCode" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubSuplrByCompanyCodeType"
+				sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="I_ProcmtHubSupplierPurgOrg" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubSupplierPurgOrgType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="I_ProcurementHubPaymentTerms" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcurementHubPaymentTermsType"
+				sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="PurchaseOrderHeaderSet" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.PurchaseOrderHeader" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="PurchaseOrderItemSet" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.PurchaseOrderItem" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="PurchaseOrderFieldListSet" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.PurchaseOrderFieldList" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="ResultSet" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.Result" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TargetDestinationCollection" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.TargetDestination" sap:content-version="1"/><EntitySet Name="ReturnCollection" EntityType="VWKS.NLP_PR_FOD_PO_CRT_SRV.Return" sap:content-version="1"/>
+				<AssociationSet Name="PurchaseOrderHeaderToItemSet" Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.PurchaseOrderHeaderToItem" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="PurchaseOrderHeaderSet" Role="FromRole_PurchaseOrderHeaderToItem"/><End EntitySet="PurchaseOrderItemSet" Role="ToRole_PurchaseOrderHeaderToItem"/></AssociationSet>
+				<AssociationSet Name="assoc_F08728A61245F27FEB30122538456A3F"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_F08728A61245F27FEB30122538456A3F" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="xVWKSxNLP_PO_C_PRFODDraftItem" Role="FromRole_assoc_F08728A61245F27FEB30122538456A3F"/><End EntitySet="C_ProcmtHubTaxCodeValueHelp" Role="ToRole_assoc_F08728A61245F27FEB30122538456A3F"/></AssociationSet>
+				<AssociationSet Name="assoc_8C469DD6F6803211ACC75187F655680E"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_8C469DD6F6803211ACC75187F655680E" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="xVWKSxNLP_PO_C_PRFODDraftHdr" Role="FromRole_assoc_8C469DD6F6803211ACC75187F655680E"/><End EntitySet="C_ProcurementHubPaymentTermsVH" Role="ToRole_assoc_8C469DD6F6803211ACC75187F655680E"/></AssociationSet>
+				<AssociationSet Name="assoc_161DD1C1A5A8FF6184079A8F3C520DC6"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_161DD1C1A5A8FF6184079A8F3C520DC6" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="I_ProcmtHubPaytTrmsConditions" Role="FromRole_assoc_161DD1C1A5A8FF6184079A8F3C520DC6"/><End EntitySet="I_ProcurementHubPaymentTerms" Role="ToRole_assoc_161DD1C1A5A8FF6184079A8F3C520DC6"/></AssociationSet>
+				<AssociationSet Name="assoc_DD65F81C375404D0D782A31B87ADEA7F"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_DD65F81C375404D0D782A31B87ADEA7F" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="I_ProcmtHubPaymentTermsText" Role="FromRole_assoc_DD65F81C375404D0D782A31B87ADEA7F"/><End EntitySet="I_Language" Role="ToRole_assoc_DD65F81C375404D0D782A31B87ADEA7F"/></AssociationSet>
+				<AssociationSet Name="assoc_F029F4330C763FFFD5C44D1F6BAB6FE0"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_F029F4330C763FFFD5C44D1F6BAB6FE0" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="xVWKSxNLP_PO_C_PRFODDraftHdr" Role="FromRole_assoc_F029F4330C763FFFD5C44D1F6BAB6FE0"/><End EntitySet="xVWKSxNLP_PO_C_PRFODDraftItem" Role="ToRole_assoc_F029F4330C763FFFD5C44D1F6BAB6FE0"/></AssociationSet>
+				<AssociationSet Name="assoc_9106657F42130F20F9A5FD888317CC18"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_9106657F42130F20F9A5FD888317CC18" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="xVWKSxNLP_PO_C_PRFODDraftHdr" Role="FromRole_assoc_9106657F42130F20F9A5FD888317CC18"/><End EntitySet="C_ProcmtHubSupplierVH" Role="ToRole_assoc_9106657F42130F20F9A5FD888317CC18"/></AssociationSet>
+				<AssociationSet Name="assoc_DAB3483923698C609058A2E35497F42C"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_DAB3483923698C609058A2E35497F42C" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="I_Language" Role="FromRole_assoc_DAB3483923698C609058A2E35497F42C"/><End EntitySet="I_LanguageText" Role="ToRole_assoc_DAB3483923698C609058A2E35497F42C"/></AssociationSet>
+				<AssociationSet Name="assoc_57BE4C1F4EB1AF782F7DB4E8DA4D5853"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_57BE4C1F4EB1AF782F7DB4E8DA4D5853" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="C_ProcmtHubSupplierVH" Role="FromRole_assoc_57BE4C1F4EB1AF782F7DB4E8DA4D5853"/><End EntitySet="I_ProcmtHubSupplierPurgOrg" Role="ToRole_assoc_57BE4C1F4EB1AF782F7DB4E8DA4D5853"/></AssociationSet>
+				<AssociationSet Name="assoc_4BA9046D649DCC3EF523677BFE1CBD2A"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_4BA9046D649DCC3EF523677BFE1CBD2A" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="C_ProcmtHubCompanyCodeVH" Role="FromRole_assoc_4BA9046D649DCC3EF523677BFE1CBD2A"/><End EntitySet="I_BackendSourceSystem" Role="ToRole_assoc_4BA9046D649DCC3EF523677BFE1CBD2A"/></AssociationSet>
+				<AssociationSet Name="assoc_B15E01C97B8D90E7180683E710AAEB50"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_B15E01C97B8D90E7180683E710AAEB50" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="I_ProcurementHubPaymentTerms" Role="FromRole_assoc_B15E01C97B8D90E7180683E710AAEB50"/><End EntitySet="I_ProcmtHubPaymentTermsText" Role="ToRole_assoc_B15E01C97B8D90E7180683E710AAEB50"/></AssociationSet>
+				<AssociationSet Name="assoc_BD2EE7C67CE869CF086E982D8F9D5ECD"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_BD2EE7C67CE869CF086E982D8F9D5ECD" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="C_ProcurementHubPaymentTermsVH" Role="FromRole_assoc_BD2EE7C67CE869CF086E982D8F9D5ECD"/><End EntitySet="I_ProcurementHubPaymentTerms" Role="ToRole_assoc_BD2EE7C67CE869CF086E982D8F9D5ECD"/></AssociationSet>
+				<AssociationSet Name="assoc_8122468B6CD83FAFC5B299B534775EB4"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_8122468B6CD83FAFC5B299B534775EB4" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="C_ProcmtHubSupplierVH" Role="FromRole_assoc_8122468B6CD83FAFC5B299B534775EB4"/><End EntitySet="I_BackendSourceSystem" Role="ToRole_assoc_8122468B6CD83FAFC5B299B534775EB4"/></AssociationSet>
+				<AssociationSet Name="assoc_D7DDFBCB42260CFDFDC57E48480C9BD6"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_D7DDFBCB42260CFDFDC57E48480C9BD6" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="I_ProcmtHubSupplierPurgOrg" Role="FromRole_assoc_D7DDFBCB42260CFDFDC57E48480C9BD6"/><End EntitySet="I_ProcmtHubPurgOrg" Role="ToRole_assoc_D7DDFBCB42260CFDFDC57E48480C9BD6"/></AssociationSet>
+				<AssociationSet Name="assoc_FD552804DAB80B942B06A4D3D8922853"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_FD552804DAB80B942B06A4D3D8922853" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="xVWKSxNLP_PO_I_PRFODDRAFTITEM" Role="FromRole_assoc_FD552804DAB80B942B06A4D3D8922853"/><End EntitySet="xVWKSxNLP_PO_I_PRFODDRAFTHDR" Role="ToRole_assoc_FD552804DAB80B942B06A4D3D8922853"/></AssociationSet>
+				<AssociationSet Name="assoc_6F4F8E5F7098315B6532D557C188B83F"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_6F4F8E5F7098315B6532D557C188B83F" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="C_ProcmtHubSupplierVH" Role="FromRole_assoc_6F4F8E5F7098315B6532D557C188B83F"/><End EntitySet="I_ProcmtHubSuplrByCompanyCode" Role="ToRole_assoc_6F4F8E5F7098315B6532D557C188B83F"/></AssociationSet>
+				<AssociationSet Name="assoc_46022ABE35E550FB492492CD606B7BB5"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_46022ABE35E550FB492492CD606B7BB5" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="xVWKSxNLP_PO_C_PRFODDraftHdr" Role="FromRole_assoc_46022ABE35E550FB492492CD606B7BB5"/><End EntitySet="C_ProcmtHubPurOrdDocTypeVH" Role="ToRole_assoc_46022ABE35E550FB492492CD606B7BB5"/></AssociationSet>
+				<AssociationSet Name="assoc_C60F1DEC90F51C5793AD660AA4A7C457"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_C60F1DEC90F51C5793AD660AA4A7C457" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="xVWKSxNLP_PO_C_PRFODDraftHdr" Role="FromRole_assoc_C60F1DEC90F51C5793AD660AA4A7C457"/><End EntitySet="C_ProcmtHubCompanyCodeVH" Role="ToRole_assoc_C60F1DEC90F51C5793AD660AA4A7C457"/></AssociationSet>
+				<AssociationSet Name="assoc_E9B9E15BA50F802689C62CCB73C90FEC"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_E9B9E15BA50F802689C62CCB73C90FEC" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="xVWKSxNLP_PO_I_PRFODDRAFTHDR" Role="FromRole_assoc_E9B9E15BA50F802689C62CCB73C90FEC"/><End EntitySet="xVWKSxNLP_PO_I_PRFODDRAFTITEM" Role="ToRole_assoc_E9B9E15BA50F802689C62CCB73C90FEC"/></AssociationSet>
+				<AssociationSet Name="assoc_208028619DF3151EB599AC54A031FC3B"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_208028619DF3151EB599AC54A031FC3B" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="I_ProcmtHubPaytTrmsConditions" Role="FromRole_assoc_208028619DF3151EB599AC54A031FC3B"/><End EntitySet="I_ProcmtHubPaymentTermsCndnTxt" Role="ToRole_assoc_208028619DF3151EB599AC54A031FC3B"/></AssociationSet>
+				<AssociationSet Name="assoc_B63D9209DE1D8AFA204E6443763D600D"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_B63D9209DE1D8AFA204E6443763D600D" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="I_ProcmtHubPaymentTermsCndnTxt" Role="FromRole_assoc_B63D9209DE1D8AFA204E6443763D600D"/><End EntitySet="I_ProcmtHubPaytTrmsConditions" Role="ToRole_assoc_B63D9209DE1D8AFA204E6443763D600D"/></AssociationSet>
+				<AssociationSet Name="assoc_080696AF94D079944902FC922F2AD939"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_080696AF94D079944902FC922F2AD939" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="xVWKSxNLP_PO_C_PRFODDraftHdr" Role="FromRole_assoc_080696AF94D079944902FC922F2AD939"/><End EntitySet="C_ProcmtHubIncotermsClsfctnVH" Role="ToRole_assoc_080696AF94D079944902FC922F2AD939"/></AssociationSet>
+				<AssociationSet Name="assoc_5BDDA301DE2C7BBAE42B8B181F68A6DC"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_5BDDA301DE2C7BBAE42B8B181F68A6DC" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="xVWKSxNLP_PO_C_PRFODDraftItem" Role="FromRole_assoc_5BDDA301DE2C7BBAE42B8B181F68A6DC"/><End EntitySet="xVWKSxNLP_PO_I_PRFODDRAFTHDR" Role="ToRole_assoc_5BDDA301DE2C7BBAE42B8B181F68A6DC"/></AssociationSet>
+				<AssociationSet Name="assoc_7252634DF1B5477360012C97B298A88C"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_7252634DF1B5477360012C97B298A88C" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="I_ProcmtHubPaymentTermsCndnTxt" Role="FromRole_assoc_7252634DF1B5477360012C97B298A88C"/><End EntitySet="I_ProcurementHubPaymentTerms" Role="ToRole_assoc_7252634DF1B5477360012C97B298A88C"/></AssociationSet>
+				<AssociationSet Name="assoc_591953ED8B25755449903D3D333FEE21"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_591953ED8B25755449903D3D333FEE21" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="xVWKSxNLP_PO_C_PRFODDraftHdr" Role="FromRole_assoc_591953ED8B25755449903D3D333FEE21"/><End EntitySet="C_ProcmtHubPurgOrgVH" Role="ToRole_assoc_591953ED8B25755449903D3D333FEE21"/></AssociationSet>
+				<AssociationSet Name="assoc_E1197487CD3269F1C408169341A4EF0A"
+					Association="VWKS.NLP_PR_FOD_PO_CRT_SRV.assoc_E1197487CD3269F1C408169341A4EF0A" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="I_ProcurementHubPaymentTerms" Role="FromRole_assoc_E1197487CD3269F1C408169341A4EF0A"/><End EntitySet="I_ProcmtHubPaytTrmsConditions" Role="ToRole_assoc_E1197487CD3269F1C408169341A4EF0A"/></AssociationSet>
+				<FunctionImport Name="CreatePurchaseOrder" ReturnType="VWKS.NLP_PR_FOD_PO_CRT_SRV.Result" EntitySet="ResultSet" m:HttpMethod="POST"
+					sap:label="Draft ID"><Parameter Name="PurReqnFllwOnDocDrftHdrUUID" Type="Edm.Guid" Mode="In"/><Parameter Name="PurchasingCompletenessStatus" Type="Edm.String" Mode="In" MaxLength="1"/></FunctionImport>
+				<FunctionImport Name="CreatePOExpert" ReturnType="VWKS.NLP_PR_FOD_PO_CRT_SRV.TargetDestination" EntitySet="TargetDestinationCollection"
+					m:HttpMethod="POST"><Parameter Name="PurReqnFllwOnDocDrftHdrUUID" Type="Edm.Guid" Mode="In"/></FunctionImport>
+				<FunctionImport Name="UpdateDraft" ReturnType="VWKS.NLP_PR_FOD_PO_CRT_SRV.Return" EntitySet="ReturnCollection" m:HttpMethod="POST"><Parameter Name="TargetTableFieldValue" Type="Edm.String" Mode="In"/><Parameter Name="PurReqnFllwOnDocDrftHdrUUID" Type="Edm.Guid" Mode="In"/><Parameter Name="PurReqnFllwOnDocDrftItmUUID" Type="Edm.Guid" Mode="In"/><Parameter Name="TargetTableField" Type="Edm.String" Mode="In"/></FunctionImport>
+			</EntityContainer>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftHdrType/ProcmtHubFixedSupplier">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Search Help view for Supplier"/><PropertyValue Property="CollectionPath" String="C_ProcmtHubSupplierVH"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcurementHubSourceSystem"/><PropertyValue Property="ValueListProperty" String="ProcurementHubSourceSystem"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcmtHubFixedSupplier"/><PropertyValue Property="ValueListProperty" String="ProcmtHubFixedSupplier"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcmtHubPurchasingOrg"/><PropertyValue Property="ValueListProperty" String="ProcmtHubPurchasingOrg"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcmtHubCompanyCode"/><PropertyValue Property="ValueListProperty" String="ProcmtHubCompanyCode"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ProcmtHubSupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ProcmtHubPurgOrgName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ProcmtHubCompanyCodeName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CityName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="PostalCode"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ProcurementHubSourceSystemName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="PrmtHbIsUKMSEnabled"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftHdrType/ProcmtHubCompanyCode">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Company Codes from Connected Systems"/><PropertyValue Property="CollectionPath" String="C_ProcmtHubCompanyCodeVH"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcurementHubSourceSystem"/><PropertyValue Property="ValueListProperty" String="ProcurementHubSourceSystem"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcmtHubPurchasingOrg"/><PropertyValue Property="ValueListProperty" String="ProcmtHubCompanyCode"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ProcmtHubCompanyCodeName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ProcurementHubSourceSystemName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftHdrType/ProcmtHubPurchasingOrg">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Purchasing Organizations"/><PropertyValue Property="CollectionPath" String="C_ProcmtHubPurgOrgVH"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcurementHubSourceSystem"/><PropertyValue Property="ValueListProperty" String="ProcurementHubSourceSystem"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcmtHubPurchasingOrg"/><PropertyValue Property="ValueListProperty" String="ProcmtHubPurchasingOrg"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ProcmtHubPurgOrgName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ProcurementHubSourceSystemName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftHdrType/ProcmtHubPurDocumentType">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="PO document type consumption view"/><PropertyValue Property="CollectionPath" String="C_ProcmtHubPurOrdDocTypeVH"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcmtHubPurDocumentType"/><PropertyValue Property="ValueListProperty" String="PurchasingDocumentType"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcurementHubSourceSystem"/><PropertyValue Property="ValueListProperty" String="ExtSourceSystem"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="PurchasingDocumentCategory"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="PurchasingDocumentTypeName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ProcurementHubSourceSystemName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftHdrType/ProcmtHubDocumentCurrency">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Currency"/><PropertyValue Property="CollectionPath" String="I_Currency"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcmtHubDocumentCurrency"/><PropertyValue Property="ValueListProperty" String="Currency"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Currency_Text"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Decimals"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CurrencyISOCode"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AlternativeCurrencyKey"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsPrimaryCurrencyForISOCrcy"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftHdrType/ProcmtHubPaymentTerms">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Payment Terms"/><PropertyValue Property="CollectionPath" String="C_ProcurementHubPaymentTermsVH"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcmtHubPaymentTerms"/><PropertyValue Property="ValueListProperty" String="PaymentTerms"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcurementHubSourceSystem"/><PropertyValue Property="ValueListProperty" String="ProcurementHubSourceSystem"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="PaymentTermsName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CashDiscount1Days"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CashDiscount1Percent"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CashDiscount2Days"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CashDiscount2Percent"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="NetPaymentDays"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ProcurementHubSourceSystemName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftHdrType/ProcmtHubIncotermsClassfctn">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="C-View for Search Help of Incoterms from Connected System"/><PropertyValue Property="CollectionPath" String="C_ProcmtHubIncotermsClsfctnVH"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcurementHubSourceSystem"/><PropertyValue Property="ValueListProperty" String="ProcurementHubSourceSystem"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcmtHubIncotermsClassfctn"/><PropertyValue Property="ValueListProperty" String="IncotermsClassification"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IncotermsClassificationName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ProcurementHubSourceSystemName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftItemType/ProcmtHubTaxCode">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Tax code value help in Central Procurement scenario"/><PropertyValue Property="CollectionPath" String="C_ProcmtHubTaxCodeValueHelp"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcurementHubSourceSystem"/><PropertyValue Property="ValueListProperty" String="ProcurementHubSourceSystem"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcmtHubTaxCode"/><PropertyValue Property="ValueListProperty" String="TaxCode"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="TaxCalculationProcedure"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="TaxCodeName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ProcurementHubSourceSystemName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubCompanyCodeVHType/ProcurementHubSourceSystem">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Backend Source System for Hub scenario"/><PropertyValue Property="CollectionPath" String="I_BackendSourceSystem"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcurementHubSourceSystem"/><PropertyValue Property="ValueListProperty" String="ProcurementHubSourceSystem"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ProcurementHubSourceSystemName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubSupplierVHType/ProcmtHubPurchasingOrg">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Purchasing Organizations"/><PropertyValue Property="CollectionPath" String="C_ProcmtHubPurgOrgVH"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcurementHubSourceSystem"/><PropertyValue Property="ValueListProperty" String="ProcurementHubSourceSystem"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcmtHubPurchasingOrg"/><PropertyValue Property="ValueListProperty" String="ProcmtHubPurchasingOrg"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ProcmtHubPurgOrgName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ProcurementHubSourceSystemName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubSupplierVHType/ProcmtHubCompanyCode">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Company Codes from Connected Systems"/><PropertyValue Property="CollectionPath" String="C_ProcmtHubCompanyCodeVH"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcurementHubSourceSystem"/><PropertyValue Property="ValueListProperty" String="ProcurementHubSourceSystem"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcmtHubCompanyCode"/><PropertyValue Property="ValueListProperty" String="ProcmtHubCompanyCode"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ProcmtHubCompanyCodeName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ProcurementHubSourceSystemName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcurementHubPaymentTermsVHType/PaymentTerms">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Basic View for Payment Terms in Procurement Hub"/><PropertyValue Property="CollectionPath" String="I_ProcurementHubPaymentTerms"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="PaymentTerms"/><PropertyValue Property="ValueListProperty" String="PaymentTerms"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ProcurementHubSourceSystem"/><PropertyValue Property="ValueListProperty" String="ExtSourceSystem"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubPaymentTermsCndnTxtType/PaymentTerms">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Basic View for Payment Terms in Procurement Hub"/><PropertyValue Property="CollectionPath" String="I_ProcurementHubPaymentTerms"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="PaymentTerms"/><PropertyValue Property="ValueListProperty" String="PaymentTerms"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ExtSourceSystem"/><PropertyValue Property="ValueListProperty" String="ExtSourceSystem"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubPaymentTermsTextType/Language">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Language"/><PropertyValue Property="CollectionPath" String="I_Language"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Language"/><PropertyValue Property="ValueListProperty" String="Language"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Language_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_ProcmtHubPaytTrmsConditionsType/PaymentTerms">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Basic View for Payment Terms in Procurement Hub"/><PropertyValue Property="CollectionPath" String="I_ProcurementHubPaymentTerms"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="PaymentTerms"/><PropertyValue Property="ValueListProperty" String="PaymentTerms"/></Record>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ExtSourceSystem"/><PropertyValue Property="ValueListProperty" String="ExtSourceSystem"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.VWKS_NLP_PR_FOD_PO_CRT_SRV_Entities"><Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+				<Annotation Term="Aggregation.ApplySupported">
+					<Record>
+						<PropertyValue Property="Transformations">
+							<Collection>
+								<String>aggregate</String>
+								<String>groupby</String>
+								<String>filter</String>
+							</Collection>
+						</PropertyValue><PropertyValue Property="Rollup" EnumMember="None"/></Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubCompanyCodeVHType">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>ProcmtHubCompanyCode</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubPurOrdDocTypeVHType">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>PurchasingDocumentType</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubPurgOrgVHType">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>ProcmtHubPurchasingOrg</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubSupplierVHType">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>ProcmtHubFixedSupplier</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcurementHubPaymentTermsVHType">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>PaymentTerms</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.I_CurrencyType/Currency"><Annotation Term="Common.UnitSpecificScale" Path="Decimals"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.VWKS.NLP_PR_FOD_PO_CRT_SRV_Entities">
+				<Annotation Term="Org.OData.Capabilities.V1.BatchSupport">
+					<Record Type="Org.OData.Capabilities.V1.BatchSupportType"><PropertyValue Property="ReferencesAcrossChangeSetsSupported" Bool="true"/></Record>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self"
+				href="https://ldcix31.wdf.sap.corp:44311/sap/opu/odata/vwks/NLP_PR_FOD_PO_CRT_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
+				href="https://ldcix31.wdf.sap.corp:44311/sap/opu/odata/vwks/NLP_PR_FOD_PO_CRT_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

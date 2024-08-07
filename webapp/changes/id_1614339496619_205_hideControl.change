@@ -1,0 +1,33 @@
+{
+	"fileName": "id_1614339496619_205_hideControl",
+	"fileType": "change",
+	"changeType": "hideControl",
+	"moduleName": "",
+	"reference": "vwks.nlp.s2p.mm.pocentral.create.Component",
+	"packageName": "$TMP",
+	"content": {},
+	"selector": {
+		"id": "vwks.nlp.s2p.mm.pocentral.create::sap.suite.ui.generic.template.ObjectPage.view.Details::xVWKSxNLP_PO_C_PRFODDraftHdr--cancel",
+		"idIsLocal": false
+	},
+	"layer": "VENDOR",
+	"texts": {},
+	"namespace": "apps/vwks.nlp.s2p.mm.pocentral.create/changes/",
+	"projectId": "vwks.nlp.s2p.mm.pocentral.create",
+	"creation": "2021-02-26T11:38:38.950Z",
+	"originalLanguage": "EN",
+	"support": {
+		"generator": "sap.ui.rta FlexCommand",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.86.3",
+		"sourceChangeFileName": "",
+		"compositeCommand": "id_1614339496620_206_composite",
+		"command": "remove"
+	},
+	"oDataInformation": {},
+	"dependentSelector": {},
+	"jsOnly": false,
+	"variantReference": "",
+	"appDescriptorChange": false
+}

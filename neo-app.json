@@ -1,0 +1,123 @@
+{
+  "welcomeFile": "/webapp/test/flpSandbox.html",
+  "routes": [{
+		"path": "webapp/resources/vwks/nlp/s2p/mm/reuse/lib",
+		"target": {
+		  "type": "destination",
+		  "name": "X31",
+		  "entryPath": "/sap/bc/ui5_ui5/vwks/nlp_reuse_lib/vwks/nlp/s2p/mm/reuse/lib/"
+		},
+		"description": "VWKS Reuse Library"
+	},
+    {
+      "path": "/sap/opu/odata",
+      "target": {
+        "type": "destination",
+        "name": "X31",
+        "entryPath": "/sap/opu/odata"
+      },
+      "description": "X31 - IDP Volkswagen GPS - DEV 1.5"
+    },
+    {
+      "path": "/resources",
+      "target": {
+        "type": "application",
+        "name": "sapui5preview",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "preferLocal": true,
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/sap/ui5/1/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "preferLocal": true
+      },
+      "description": "SAPUI5 dist layer resources"
+    },
+    {
+      "path": "/webapp/resources",
+      "target": {
+        "type": "application",
+        "name": "sapui5preview",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/webapp/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/webapp/test-resources",
+      "target": {
+        "type": "application",
+        "name": "sapui5preview",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/webapp/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/sap/bc/lrep",
+      "target": {
+        "type": "destination",
+        "name": "X31",
+        "entryPath": "/sap/bc/lrep"
+      },
+      "description": "X31"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "application",
+        "name": "sapui5preview",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/",
+      "target": {
+        "type": "application",
+        "name": "flpsandbox",
+        "preferLocal": true
+      },
+      "description": "Subscribed Fiori LaunchPad"
+    }
+  ],
+  "sendWelcomeFileRedirect": true
+}

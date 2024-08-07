@@ -1,0 +1,101 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='X31205')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='X31205')/$value"><edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='X31205')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='X31205')/$value"><edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='X31205')/$value"><edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='X31205')/$value"><edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='X31205')/$value"><edmx:Include Namespace="Org.OData.Capabilities.V1"/></edmx:Reference>
+	<edmx:Reference Uri="../../../vwks/nlp_pr_fod_po_crt_srv/$metadata"><edmx:Include Namespace="NLP_PR_FOD_PO_CRT_SRV" Alias="SAP"/></edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.sap.vwks.nlp_pr_fod_po_crt_anno_mdl.v1"><Annotations Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftHdrType/to_PurReqnFllwOnDocDraftItem"/>
+			<Annotations Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftHdrType/CreatedByUser"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftHdrType">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.ReferenceFacet"><PropertyValue Property="ID" String="GeneralInformation"/><PropertyValue Property="Target" AnnotationPath="@UI.Identification"/></Record>
+						<Record Type="UI.ReferenceFacet"><PropertyValue Property="Label" String="Items"/><PropertyValue Property="ID" String="Items"/><PropertyValue Property="Target" AnnotationPath="to_PurReqnFllwOnDocDraftItem/@UI.LineItem#MyInbox_Items"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="DocumentType"/><PropertyValue Property="Value" Path="ProcmtHubPurDocumentType"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Supplier"/><PropertyValue Property="Value" Path="ProcmtHubFixedSupplier"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Connected System"/><PropertyValue Property="Value" Path="ProcurementHubSourceSystem"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="ProcmtHubCompanyCode"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="ProcmtHubPurchasingOrg"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="ProcmtHubPurchasingGroup"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="PaymentTerms"/><PropertyValue Property="Value" Path="ProcmtHubPaymentTerms"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="IncoTerms"/><PropertyValue Property="Value" Path="ProcmtHubIncotermsClassfctn"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Currency"/><PropertyValue Property="Value" Path="ProcmtHubDocumentCurrency"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="DocumentType"/><PropertyValue Property="Value" Path="ProcmtHubPurDocumentType"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Supplier"/><PropertyValue Property="Value" Path="ProcmtHubFixedSupplier"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Connected System"/><PropertyValue Property="Value" Path="ProcurementHubSourceSystem"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="CompanyCode"/><PropertyValue Property="Value" Path="ProcmtHubCompanyCode"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Purchasing Organization"/><PropertyValue Property="Value" Path="ProcmtHubPurchasingOrg"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Purchasing Group"/><PropertyValue Property="Value" Path="ProcmtHubPurchasingGroup"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="PaymentTerms"/><PropertyValue Property="Value" Path="ProcmtHubPaymentTerms"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="IncoTerms"/><PropertyValue Property="Value" Path="ProcmtHubIncotermsClassfctn"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Currency"/><PropertyValue Property="Value" Path="ProcmtHubDocumentCurrency"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftItemType/PurReqnFllwOnDocDrftHdrUUID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftItemType/PurReqnFllwOnDocDrftItmUUID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftItemType/ProcmtHubPurchaseRequisition"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftItemType/ProcmtHubPurRequisitionItem"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.xVWKSxNLP_PO_C_PRFODDraftItemType">
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Connected System"/><PropertyValue Property="Value" Path="ProcurementHubSourceSystem"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Connected System"/><PropertyValue Property="Value" Path="ProcurementHubSourceSystem"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.LineItem" Qualifier="MyInbox_Items">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="ProcmtHubPurchaseRequisition"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="ProcmtHubPurRequisitionItem"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Purchase Requisition/Item"/><PropertyValue Property="Value" Path="FormattedPurRequisitionItem"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Item Category"/><PropertyValue Property="Value" Path="ProcmtHubPurgDocItmCategory"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Material"/><PropertyValue Property="Value" Path="ProcmtHubProduct"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Material Description"/><PropertyValue Property="Value" Path="ProcmtHubMaterialName"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Material Group"/><PropertyValue Property="Value" Path="ProcmtHubProductGroup"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Plant"/><PropertyValue Property="Value" Path="ProcmtHubPlant"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Delivery Date"/><PropertyValue Property="Value" Path="ProcmtHubDeliveryDate"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Quantity"/><PropertyValue Property="Value" Path="ProcmtHubOrderQuantity"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Price Type"/><PropertyValue Property="Value" Path="PriceType"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubCompanyCodeVHType/ProcurementHubSourceSystem"><Annotation Term="UI.HiddenFilter"/></Annotations>
+			<Annotations Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubIncotermsClsfctnVHType/ProcurementHubSourceSystem"><Annotation Term="UI.HiddenFilter"/></Annotations>
+			<Annotations Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubPurgOrgVHType/ProcurementHubSourceSystem"><Annotation Term="UI.HiddenFilter"/></Annotations>
+			<Annotations Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubPurOrdDocTypeVHType/ExtSourceSystem"><Annotation Term="UI.HiddenFilter"/></Annotations>
+			<Annotations Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubSupplierVHType/ProcurementHubSourceSystem"><Annotation Term="UI.HiddenFilter"/></Annotations>
+			<Annotations Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubSupplierVHType/PrmtHbIsUKMSEnabled"><Annotation Term="UI.HiddenFilter"/></Annotations>
+			<Annotations Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubSupplierVHType/SupplierAccountGroup"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubSupplierVHType/AuthorizationGroup"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcmtHubTaxCodeValueHelpType/ProcurementHubSourceSystem"><Annotation Term="UI.HiddenFilter"/></Annotations>
+			<Annotations Target="VWKS.NLP_PR_FOD_PO_CRT_SRV.C_ProcurementHubPaymentTermsVHType/ProcurementHubSourceSystem"><Annotation Term="UI.HiddenFilter"/></Annotations>
+			<Annotations Target="_Entities">
+				<Annotation Term="Org.OData.Capabilities.V1.BatchSupport">
+					<Record Type="Org.OData.Capabilities.V1.BatchSupportType"><PropertyValue Property="ReferencesAcrossChangeSetsSupported" Bool="true"/></Record>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,4 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Button id="idCreatePoErrorBtn" text="{= ${messageModel>/messages}.length }" visible="{= !!${messageModel>/messages}.length }"
+		type="Negative" icon="sap-icon://sys-cancel" press="onCustomMessageBtnPress"></Button>
+</core:FragmentDefinition>
